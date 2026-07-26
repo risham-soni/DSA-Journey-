@@ -1,8 +1,10 @@
 //27-07-2026
+/*
 class main{
     public static  void BubbleSort(int arr[]){
         int n = arr.length;
         // i = turns
+        boolean swapped = fasle;
         for(int i = 0; i < n-1; i++){
             for(int j = 0; j < n-1-i; j++){
                 if(arr[j] > arr[j+1]){
@@ -10,8 +12,11 @@ class main{
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j+1] = temp;
+                    swapped = true;
                 }
             }
+            if(swapped == false){
+            break;
         }
     }
     //Print Arrays
@@ -27,3 +32,34 @@ class main{
         printArr(arr);
     }
 }
+*/
+
+//Binary Search
+class Main {
+    public static int binarySearch(int arr[], int key) {
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (arr[mid] == key) {
+                return mid;
+            } else if (arr[mid] < key) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int arr[] = {6, 7, 8, 9, 11, 15, 22};
+        int key = 11;
+
+        System.out.println(binarySearch(arr, key));
+    }
+}
+
