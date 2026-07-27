@@ -112,6 +112,7 @@ class Main{
 */
 
 // 628. Maximum Product of Three Numbers only for positive number
+/*
 class Main{
     public static int MaximumProduct(int arr[]){
         int l = 0;
@@ -137,3 +138,4 @@ class Main{
         System.out.println(MaximumProduct(arr));
     }
 }
+*/
