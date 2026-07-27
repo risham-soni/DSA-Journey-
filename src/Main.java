@@ -1,5 +1,6 @@
 //27-07-2026
 /*
+//Bubble sort o(n^2)
 class main{
     public static  void BubbleSort(int arr[]){
         int n = arr.length;
@@ -34,7 +35,7 @@ class main{
 }
 */
 
-//Binary Search
+//Binary Search TC-o(log n)
 /*
 class Main {
     public static int binarySearch(int arr[], int key) {
