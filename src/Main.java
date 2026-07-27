@@ -90,3 +90,23 @@ class Main{
     }
 }
 */
+ // Copy ArrayList
+/*
+import java.util.*;
+class Main{
+    public static void main(String args[]){
+        ArrayList<Integer> ArrayList1 = new ArrayList<>();
+        ArrayList1.add(3);
+        ArrayList1.add(11);
+        ArrayList1.add(6);
+        ArrayList1.add(7);
+        ArrayList1.add(5);
+
+        System.out.println("Original ArrayList = " + ArrayList1);
+
+        ArrayList<Integer> ArrayList2 = new ArrayList<>();
+        ArrayList2.addAll(ArrayList1);
+        System.out.println("Original ArrayList = " + ArrayList2);
+    }
+}
+*/
