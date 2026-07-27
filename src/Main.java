@@ -1,6 +1,6 @@
 //27-07-2026
 /*
-//Bubble sort o(n^2)
+//Bubble sort TC-o(n^2)
 class main{
     public static  void BubbleSort(int arr[]){
         int n = arr.length;
