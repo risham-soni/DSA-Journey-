@@ -110,3 +110,30 @@ class Main{
     }
 }
 */
+
+// 628. Maximum Product of Three Numbers only for positive number
+class Main{
+    public static int MaximumProduct(int arr[]){
+        int l = 0;
+        int s = 0;
+        int t = 0;
+
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] >= l){
+                t = s;
+                s = l;
+                l = arr[i];
+            } else if(arr[i] >= s){
+                t = s;
+                s = arr[i];
+            }else if(arr[i] >= t){
+                t = arr[i];
+            }
+        }
+        return s * l * t;
+    }
+    public static void main(String args[]){
+        int arr[] = {4,11,3};
+        System.out.println(MaximumProduct(arr));
+    }
+}
