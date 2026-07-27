@@ -35,6 +35,7 @@ class main{
 */
 
 //Binary Search
+/*
 class Main {
     public static int binarySearch(int arr[], int key) {
         int left = 0;
@@ -62,4 +63,29 @@ class Main {
         System.out.println(binarySearch(arr, key));
     }
 }
+*/
 
+//Maximum product of two digit TC= o(log n)
+/*
+class Main{
+    public static int maxProductofTwo(int n){
+        int largest = 0;
+        int SecLargest = 0;
+        while(n > 0){
+            int digit = n % 10;
+            n /= 10;
+            if(digit >= largest){
+                SecLargest = largest;
+                largest = digit;
+            }else if(digit > SecLargest){
+                SecLargest = digit;
+            }
+        }
+        return largest * SecLargest;
+    }
+    public static void main(String args[]){
+        int n = 54691;
+        System.out.println("Maximum product of two digit is = " + maxProductofTwo(n));
+    }
+}
+*/
