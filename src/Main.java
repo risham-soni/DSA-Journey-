@@ -163,6 +163,36 @@ class Main{
         FindPermutation(str, " ");
     }
 }
-
 */
+
+/*
+import java.util.Arrays;
+
+//3517. Smallest Palindromic Rearrangement I
+class Main{
+    public static String PalindromicRearr(String str){
+        int n = str.length();
+        int left = 0;
+        int right = n;
+        int mid = left + (right-left)/2;
+
+//        int n = str.length();
+//        int mid = n / 2;
+
+        char chars[] = str.toCharArray();
+        Arrays.sort(chars, 0, mid);
+
+        for(int i = 0; i < mid; i++){
+            chars[n-1-i] = chars[i];
+        }
+
+        return new String(chars);
+    }
+    public static void main(String args[]){
+        String str = "daccad";
+        System.out.println(PalindromicRearr(str));
+    }
+}
+*/
+
 
