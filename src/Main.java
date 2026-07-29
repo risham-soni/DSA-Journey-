@@ -195,4 +195,26 @@ class Main{
 }
 */
 
+//Kadane's Algorithm
+class main{
+    public static int Kadanes(int arr[]){
+        int ms = Integer.MIN_VALUE;
+        int cs = 0;
+
+        for(int i = 0; i < arr.length; i++){
+            cs += arr[i];
+            ms = Math.max(ms,cs);
+
+            if(cs < 0){
+                cs = 0;
+            }
+        }
+        return ms;
+    }
+    public static void main(String args[]){
+        int arr[] = {-2, -4};
+        System.out.println(Kadanes(arr));
+    }
+}
+
 
