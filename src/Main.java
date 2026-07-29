@@ -196,6 +196,7 @@ class Main{
 */
 
 //Kadane's Algorithm
+/*
 class main{
     public static int Kadanes(int arr[]){
         int ms = Integer.MIN_VALUE;
@@ -216,5 +217,5 @@ class main{
         System.out.println(Kadanes(arr));
     }
 }
-
+*/
 
