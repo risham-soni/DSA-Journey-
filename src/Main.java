@@ -219,3 +219,34 @@ class main{
 }
 */
 
+
+// LC - 3014. Minimum Number of Pushes to Type Word I
+/*
+import java.util.HashMap;
+
+class Main{
+    public static int minimumPushes(String word) {
+        if(word.length() <= 8){
+            return word.length();
+        }
+        int count = 0;
+        HashMap<Integer, Integer> mp = new HashMap<>();
+        int assign = 2;
+        for(char ch : word.toCharArray()){
+            if(assign > 9){
+                assign = 2;
+            }
+            mp.put(assign, mp.getOrDefault(assign,0) + 1);
+            count += mp.get(assign);
+            assign++;
+        }
+        return count;
+    }
+    public static void main(String args[]){
+        String word = "xycdefghij";
+
+        System.out.println(minimumPushes(word));
+
+    }
+}
+*/
