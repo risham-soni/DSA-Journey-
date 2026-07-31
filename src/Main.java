@@ -286,7 +286,8 @@ class Main {
 */
 
 //Dijkstra Algorithm
-TC - o(v + E)
+//TC - o(v + E)
+
 /*
 import java.util.*;
 class Main{
@@ -306,6 +307,12 @@ class Main{
         for(int i = 0; i < graph.length; i++){
             graph[i] = new ArrayList<>();
         }
+
+//        for(int i = 0; i < E.length; ++i) {
+//            int a = E[i][0] , b = E[i][1] , c = E[i][2];
+//            graph[a].add(new Edge(a , b , c));
+//            graph[b].add(new Edge(b , a , c));
+//        }
 
         graph[0].add(new Edge(0, 1, 2));
         graph[0].add(new Edge(0, 2, 4));
@@ -387,4 +394,36 @@ class Main{
         dijkstra(graph, src);
     }
 }
- */
+*/
+
+
+// DP -> Climbing Stairs
+
+import java.util.Arrays;
+
+class Main{
+    public static int Solve(int n, int ways[]){
+        //base case
+        if(n == 0){
+            return 1;
+        }
+        if(n < 0){
+            return 0;
+        }
+
+        if(ways[n] != -1){
+            return ways[n];
+        }
+
+        ways[n] = Solve(n-1, ways) + Solve(n-2, ways);
+
+        return ways[n];
+    }
+    public static void main(String args[]){
+        int n = 3;
+        int ways[] = new int[n + 1];
+        Arrays.fill(ways, -1);
+        System.out.println(Solve(n, ways));
+    }
+}
+
