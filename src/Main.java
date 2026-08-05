@@ -397,11 +397,11 @@ class Main{
 */
 
 
-// DP -> Climbing Stairs
+// DP -> Climbing Stairs TC- o(n)
 /*
 import java.util.Arrays;
 class Main{
-    public static int Solve(int n, int ways[]){
+    public static int SolveMemo(int n, int ways[]){
         //base case
         if(n == 0){
             return 1;
@@ -414,19 +414,35 @@ class Main{
             return ways[n];
         }
 
-        ways[n] = Solve(n-1, ways) + Solve(n-2, ways);
+        ways[n] = SolveMemo(n-1, ways) + SolveMemo(n-2, ways);
 
         return ways[n];
     }
+
+    public static int solveTab(int n) {
+        int dp[] = new int[n+1];
+        dp[0] = 1;
+
+        //tabulation loop
+        for(int i = 1; i <= n; i++){
+            if(i == 1){
+                dp[i] = dp[i-1] + 0;
+            }else{
+                dp[i] = dp[i-1] + dp[i-2];
+            }
+        }
+        return dp[n];
+    }
+
     public static void main(String args[]){
         int n = 5;
         int ways[] = new int[n + 1];
         Arrays.fill(ways, -1);
-        System.out.println(Solve(n, ways));
+        System.out.println(SolveMemo(n, ways));
+        System.out.println(solveTab(n));
     }
 }
 */
-
 
 //Rotten Orange
 /*
@@ -509,3 +525,98 @@ class Main {
 */
 
 
+//2Sum
+
+/*
+import java.util.HashSet;
+
+class Main{
+    public static boolean twoSum(int[] arr, int target){
+        HashSet<Integer> set = new HashSet<>();
+
+        for(int num : arr){
+            int solve = target - num;
+            if(set.contains(solve)){
+                return true;
+            }
+            set.add(num);
+        }
+        return false;
+    }
+    public static void main(String args[]){
+        int arr[] = {0, -1, 2, -3, 1};
+        int target = -2;
+        System.out.println(twoSum(arr, target));
+    }
+}
+*/
+
+// Two Sum in Sorted Array
+
+/*
+import java.util.ArrayList;
+
+class Main{
+    public static ArrayList<Integer> twoSum(int[] arr, int target){
+        ArrayList<Integer> ans = new ArrayList<>();
+        int n = arr.length;
+        for(int i = 0; i < n; i++){
+            for(int j = i+1; j < n; j++){
+                if(arr[i] + arr[j] == target){
+                    ans.add(i);
+                    ans.add(j);
+                    return ans;
+                }
+            }
+        }
+        return ans;
+    }
+    public static void main(String args[]){
+        int arr[] = {2, 7, 11, 15};
+        int target = 9;
+        System.out.println(twoSum(arr, target));
+    }
+}
+*/
+
+
+//fractional Knapsack
+/*
+import java.util.*;
+
+class Main {
+    public static void main(String args[]) {
+        int val[] = {60, 100, 120};
+        int weight[] = {10, 20, 30};
+        int w = 50;
+
+        double ratio[][] = new double[val.length][2];
+
+        for (int i = 0; i < val.length; i++) {
+            ratio[i][0] = i;
+            ratio[i][1] = val[i] / (double) weight[i];
+        }
+
+        // Sort in ascending order according to ratio
+        Arrays.sort(ratio, Comparator.comparingDouble(a -> a[1]));
+
+        int capacity = w;
+        double finalVal = 0;
+
+        for (int i = ratio.length - 1; i >= 0; i--) {
+            int idx = (int) ratio[i][0];
+
+            if (capacity >= weight[idx]) {
+                finalVal += val[idx];
+                capacity -= weight[idx];
+            } else {
+                finalVal += ratio[i][1] * capacity;
+                capacity = 0;
+                break;
+            }
+        }
+
+        System.out.println("Final value: " + finalVal);
+    }
+}
+*/
