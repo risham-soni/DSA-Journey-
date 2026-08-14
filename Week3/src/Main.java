@@ -138,6 +138,7 @@ public class Main {
 */
 
 // Maximum Path sum
+/*
 class Main{
     static int findMaxsumRes(Node root, int[] res){
         //Base Case
@@ -184,4 +185,63 @@ class Main{
         System.out.println(findMaxSum(root));
     }
 }
+*/
+
+//Count Complete Tree Node LC- 222
+class Main{
+    public static int countNodes(Node root){
+        if(root == null){
+            return 0;
+        }
+
+        int leftDepth = leftDepth(root);
+        int rightDepth = rightDepth(root);
+
+        if(leftDepth == rightDepth){
+            return (int) Math.pow(2, leftDepth) - 1;
+        }else{
+            return 1 + countNodes(root.left) + countNodes(root.right);
+        }
+    }
+
+    private static int leftDepth(Node root){
+        int dep = 0;
+        while(root != null){
+            root = root.left;
+            dep++;
+        }
+        return dep;
+    }
+
+    private static int rightDepth(Node root){
+        int dep = 0;
+        while(root != null){
+            root = root.right;
+            dep++;
+        }
+        return dep;
+    }
+
+    static class Node{
+        int data;
+        Node left, right;
+
+        Node(int data){
+            this.data = data;
+        }
+    }
+    public static void main(String args[]){
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root. left.left = new Node(3);
+        root.left.right = new Node(4);
+        root.right = new Node(5);
+        root.right.left = new Node(6);
+
+        int result = countNodes(root);
+        System.out.println(result);
+
+    }
+}
+
 
