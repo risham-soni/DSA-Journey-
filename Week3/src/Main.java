@@ -188,6 +188,7 @@ class Main{
 */
 
 //Count Complete Tree Node LC- 222
+/*
 class Main{
     public static int countNodes(Node root){
         if(root == null){
@@ -243,5 +244,91 @@ class Main{
 
     }
 }
+*/
 
+//Maximum Average subarray 1
+//Sliding window ka concept hai
+/*
+class Main{
+    public static double maxAvgSub(int arr[], int k){
+        int windowSum = 0;
+        for(int i = 0; i < k; i++){
+            windowSum += arr[i];
+        }
+        int maxSum = windowSum;
 
+        for(int i = k; i < arr.length; i++){
+            windowSum += arr[i];
+            windowSum -= arr[i - k];
+            maxSum = Math.max(maxSum, windowSum);
+        }
+        return (double) maxSum / k;
+    }
+    public static void main(String args[]){
+        int arr[] = {1,12,-5,-6,50,3};
+        int k = 4;
+        System.out.println(maxAvgSub(arr, k));
+    }
+}
+*/
+
+//3090. Maximum Length Substring With Two Occurrences
+/*
+class Main{
+    public static int lenSubsWithTwoOccu(String str){
+        Map<Character, Integer> freq = new HashMap<>();
+        int left = 0;
+        int maxLength = 0;
+        for(int right = 0; right < str.length(); right++){
+            char ch = str.charAt(right);
+
+            freq.put(ch, freq.getOrDefault(ch, 0) + 1);
+
+            while(freq.get(ch) > 2){
+                char leftChar = str.charAt(left);
+
+                freq.put(leftChar, freq.get(leftChar) - 1);
+                left++;
+            }
+            maxLength = Math.max(maxLength, right-left+1);
+        }
+        return maxLength;
+    }
+    public static void main(String args[]){
+        String str = "bcbbbcba";
+        System.out.println(lenSubsWithTwoOccu(str));
+    }
+}
+*/
+
+//LC  - 2341. Maximum Number of Pairs in Array
+class Main{
+    public static int[] maxNoPair(int arr[]){
+        int n = arr.length;
+        int Pcount = 0;
+        for(int i = 0; i < n-1; i++){
+            for(int j = i+1; j < n; j++){
+                if(arr[i] != -1 && arr[i] == arr[j]){
+                        Pcount++;
+                        arr[i] = -1;
+                        arr[j] = -1;
+                        break;
+                }
+            }
+        }
+        int RemArr = 0;
+        for(int i = 0; i < n; i++){
+            if(arr[i] != -1){
+                RemArr++;
+            }
+        }
+        int ans[] = {Pcount, RemArr};
+        return ans;
+    }
+    public static void main(String args[]){
+        int arr[] = {1,3,2,1,3,2,2};
+        int output[] = maxNoPair(arr);
+        System.out.println("pairs" + " " + output[0]);
+        System.out.println("Remainig" + " " + output[1]);
+    }
+}
