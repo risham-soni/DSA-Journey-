@@ -302,6 +302,7 @@ class Main{
 */
 
 //LC  - 2341. Maximum Number of Pairs in Array
+/*
 class Main{
     public static int[] maxNoPair(int arr[]){
         int n = arr.length;
@@ -330,5 +331,63 @@ class Main{
         int output[] = maxNoPair(arr);
         System.out.println("pairs" + " " + output[0]);
         System.out.println("Remainig" + " " + output[1]);
+    }
+}
+*/
+
+//713. Subarray Product Less Than K
+/*
+class Main{
+    public static int numSubarrayProductLessThanK(int[] nums, int target) {
+        if (target <= 1) {
+            return 0;
+        }
+
+        int product = 1;
+        int start = 0;
+        int count = 0;
+
+        for (int end = 0; end < nums.length; end++) {
+            product *= nums[end];
+
+            while (product >= target) {
+                product /= nums[start];
+                start++;
+            }
+
+            count += end - start + 1;
+        }
+
+        return count;
+    }
+    public static void main(String args[]){
+        int[] nums = {10,5,2,6};
+        int target = 100;
+        System.out.println(numSubarrayProductLessThanK(nums, target));
+    }
+}
+*/
+
+//Print Alternate of an Array
+class Main{
+    public static ArrayList<Integer> printAlter(ArrayList<Integer> arr){
+        int n = arr.size();
+        ArrayList<Integer> result = new ArrayList<>();
+        for(int i = 0; i < n; i = i + 2){
+            result.add(arr.get(i));
+        }
+        return result;
+    }
+    public static void main(String args[]){
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(2);
+        arr.add(5);
+        arr.add(7);
+        arr.add(9);
+        arr.add(3);
+        arr.add(1);
+        arr.add(6);
+
+        System.out.print(printAlter(arr));
     }
 }
