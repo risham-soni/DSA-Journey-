@@ -369,6 +369,7 @@ class Main{
 */
 
 //Print Alternate of an Array
+/*
 class Main{
     public static ArrayList<Integer> printAlter(ArrayList<Integer> arr){
         int n = arr.size();
@@ -389,5 +390,42 @@ class Main{
         arr.add(6);
 
         System.out.print(printAlter(arr));
+    }
+}
+*/
+
+// sum of element in Binary tree
+class Main{
+    static class Node{
+        int data;
+        Node left, right;
+        Node(int data){
+            this.data = data;
+            left = right = null;
+        }
+    }
+    public static int BinaryTreeSum(Node root){
+        if(root == null){
+            return 0;
+        }
+        int leftSum = BinaryTreeSum(root.left);
+        int rightSum = BinaryTreeSum(root.right);
+
+        return root.data + leftSum + rightSum;
+    }
+    public static void main(String args[]){
+
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+
+        root.left.left = new Node(16);
+        root.left.left.left = new Node(7);
+
+        root.right.right = new Node(4);
+        root.right.left = new Node(9);
+        root.right.right.left = new Node(6);
+
+        System.out.println(BinaryTreeSum(root));
     }
 }
