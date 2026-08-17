@@ -97,4 +97,108 @@ class Main{
     }
 }
 */
+//check if a string is palindrome or  not
+/*
+class Main{
+    public static boolean checkPalin(String str){
+        int l = 0;
+        int r = str.length()-1;
+        while(l < r){
+            if(str.charAt(l) != str.charAt(r)){
+                return false;
+            }else{
+                l += 1;
+                r -= 1;
+            }
+        }
+        return true;
+    }
+    public static void main(String args[]){
+        String str = "level";
+        System.out.println(checkPalin(str));
+    }
+}
+*/
 
+//using single variable
+/*
+class Main{
+    public static boolean checkPalin(String str){
+        int n = str.length();
+        for(int i = 0; i < n / 2; i++){
+            if(str.charAt(i) == str.charAt(n-i-1)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return checkPalin(str);
+    }
+    public static void main(String args[]){
+        String str = "level";
+        System.out.println(checkPalin(str));
+    }
+}
+*/
+
+// check if a number is a palindrome
+/*
+class Main{
+    public static boolean checkPalin(int n){
+        if(n < 0){
+            return false;
+        }
+        int original = n;
+        int reverse = 0;
+
+        while(n > 0){
+            int digit = n % 10;
+            reverse = reverse * 10 + digit;
+            n = n / 10;
+        }
+        return original == reverse;
+    }
+    public static void main(String args[]){
+        int n = 1551;
+        System.out.println(checkPalin(n));
+    }
+}
+*/
+
+//using number as string
+/*
+class Main{
+    public static boolean checkPalin(int n){
+        String str = Integer.toString(n);
+        int len = str.length();
+        for(int i = 0; i < len/2; i++){
+            if(str.charAt(i) != str.charAt(len-i-1)){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String args[]){
+        int n = 1551;
+        System.out.println(checkPalin(n));
+    }
+}
+*/
+
+
+//reverse a integer
+class Main{
+    public static int revString(int n){
+        int rev = 0;
+        while(n > 0){
+            int digit = n % 10;
+            rev = rev * 10 + digit;
+            n = n / 10;
+        }
+        return rev;
+    }
+    public static void main(String args[]){
+        int n = 674231;
+        System.out.println(revString(n));
+    }
+}
