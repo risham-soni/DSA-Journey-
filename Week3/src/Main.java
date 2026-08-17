@@ -395,6 +395,7 @@ class Main{
 */
 
 // sum of element in Binary tree
+/*
 class Main{
     static class Node{
         int data;
@@ -429,3 +430,4 @@ class Main{
         System.out.println(BinaryTreeSum(root));
     }
 }
+*/
