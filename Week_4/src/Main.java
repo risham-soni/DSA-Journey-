@@ -187,6 +187,7 @@ class Main{
 
 
 //reverse a integer
+/*
 class Main{
     public static int revString(int n){
         int rev = 0;
@@ -202,3 +203,145 @@ class Main{
         System.out.println(revString(n));
     }
 }
+*/
+
+//check if a number is prime or not
+/*
+class Main{
+    public static boolean isPrime(int n){
+        if(n <= 1){
+            return false;
+        }
+        for(int i = 2; i * i <= n; i++){
+            if(n % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String args[]){
+        int n = 17;
+        System.out.println(isPrime(n));
+    }
+}
+*/
+
+//print prime number in a range
+/*
+class Main{
+    public static boolean printprimerange(int n){
+        if(n <= 1){
+            return false;
+        }
+        for(int i = 2; i * i < n; i++){
+            if(n % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String args[]){
+        int start = 10;
+        int end = 20;
+
+        for(int i = start; i < end; i++){
+            if(printprimerange(i)){
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
+*/
+
+//find factorial of a number
+/*
+class Main{
+    public static int factNo(int n){
+        int fact = 1;
+        for(int i = 1; i <= n; i++){
+            fact *= i;
+        }
+        return fact;
+    }
+    public static void main(String args[]){
+        int n = 5;
+        System.out.println("Factorial = " + factNo(n));
+    }
+}
+*/
+
+//Generate the Nth Fibonacci Series
+//using recursion
+/*
+class Main{
+    public static int fibNo(int n){
+        if(n == 0 || n == 1){
+            return n;
+        }
+        int f = fibNo(n-1);
+        int s = fibNo(n-2);
+        return f + s;
+    }
+    public static void main(String args[]){
+        int n = 8;
+        System.out.println(fibNo(n));
+    }
+}
+*/
+
+// using for loop
+/*
+class Main{
+    public static int fibNo(int n){
+        int f = 0;
+        int s = 1;
+        for(int i = 0; i < n; i++){
+            int next = f + s;
+            f = s;
+            s = next;
+        }
+        return f;
+    }
+    public static void main(String args[]){
+        int n = 3;
+        System.out.println(fibNo(n));
+    }
+}
+*/
+
+//find ArmStrong Number
+class Main{
+    public static boolean isArmstrong(int n){
+        int original = n;
+        int sum = 0;
+        int digits = 0;
+        int temp = n;
+        //count the digits
+        while(temp > 0){
+            digits++;
+            temp = temp / 10;
+        }
+
+        temp = n;
+        while(temp > 0){
+            int digit = temp % 10;
+            int power = 1;
+
+            for(int i = 0; i < digits; i++){
+                power = power * digit;
+            }
+            sum = sum + power;
+            temp = temp / 10;
+        }
+        if(sum == original){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public static void main(String args[]){
+        int n = 9474;
+        System.out.println(isArmstrong(n));
+    }
+}
+
