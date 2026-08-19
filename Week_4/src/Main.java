@@ -310,6 +310,7 @@ class Main{
 */
 
 //find ArmStrong Number
+/*
 class Main{
     public static boolean isArmstrong(int n){
         int original = n;
@@ -344,4 +345,29 @@ class Main{
         System.out.println(isArmstrong(n));
     }
 }
+*/
 
+//Check if a number is Perfect
+/*
+class Main{
+    public static boolean isPerfect(int n){
+        int sum = 0;
+        for(int i = 1; i < n; i++){
+            if(n % i == 0){
+                sum += i;
+            }
+        }
+        if(sum == n){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public static void main(String args[]){
+        int n = 6;
+        //System.out.println(isPerfect(n) ? "true" : "false");
+        System.out.println(isPerfect(n));
+    }
+}
+*/
