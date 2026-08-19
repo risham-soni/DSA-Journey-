@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 //Week_4 - 17/08/2026
@@ -371,3 +373,73 @@ class Main{
     }
 }
 */
+
+//Leetcode Question - 3005. Count Elements With Maximum Frequency
+/*
+class Main{
+    public static int f(int[] arr){
+        Map<Integer, Integer> Fmap = new HashMap<>();
+
+        for(int a : arr){
+            int CountFreq = Fmap.getOrDefault(a, 0) + 1;
+            Fmap.put(a, CountFreq);
+        }
+
+        int MaxFreq = 0;
+        int total = 0;
+
+        for(int freq : Fmap.values()){
+            MaxFreq = Math.max(MaxFreq, freq);
+        }
+
+        for(int freq : Fmap.values()){
+            if(freq == MaxFreq){
+                total += freq;
+            }
+        }
+        return total;
+    }
+    public static void main(String args[]){
+        int[] arr = {1,2,2,3,1,4};
+        System.out.println(f(arr));
+    }
+}
+*/
+
+//Find GCD or HCF of two numbers
+/*
+class Main{
+    public static int findHCF(int f, int s){
+        while(s != 0){
+            int rem = f % s;
+            f = s;
+            s = rem;
+        }
+        return f;
+    }
+    public static void main(String args[]){
+        int f = 48;
+        int s = 18;
+        System.out.println(findHCF(f, s));
+    }
+}
+*/
+
+//Count Digits in a number
+class Main{
+    public static int countDigit(int n){
+        int count = 0;
+        if(n == 0){
+            return 1;
+        }
+        while(n > 0 || n < 0){
+            n = n / 10;
+            count++;
+        }
+        return count;
+    }
+    public static void main(String args[]){
+        int n = -426;
+        System.out.println(countDigit(n));
+    }
+}
