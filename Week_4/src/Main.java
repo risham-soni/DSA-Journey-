@@ -426,6 +426,7 @@ class Main{
 */
 
 //Count Digits in a number
+/*
 class Main{
     public static int countDigit(int n){
         int count = 0;
@@ -443,3 +444,59 @@ class Main{
         System.out.println(countDigit(n));
     }
 }
+*/
+
+
+//Sum of Digits of a Number
+/*
+class Main{
+    public static int f(int n){
+        int sum = 0;
+        while (n > 0){
+            sum += n % 10;
+            n = n / 10;
+        }
+        return sum;
+    }
+    public static void main(String args[]){
+        int n = 12345;
+        System.out.println(f(n));
+    }
+}
+*/
+
+//Count vowels and Consonants
+/*
+class Main{
+    public static int[] f(String str){
+        int n = str.length();
+        int vowels = 0;
+        int Consonents = 0;
+
+        for(int i = 0; i < n; i++){
+
+            char ch = str.charAt(i);
+
+            if ( (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') ){
+                ch = Character.toLowerCase(ch);
+            }
+
+            if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'){
+                vowels++;
+
+            }else if(ch != ' '){
+                Consonents++;
+            }
+        }
+        return new int[]{vowels, Consonents};
+    }
+    public static void main(String args[]){
+        String str = "geeks for geeks";
+        int[] result = f("geeks for geeks");
+
+        System.out.println("Vowels: " + result[0]);
+        System.out.println("Consonants: " + result[1]);
+    }
+}
+*/
+
