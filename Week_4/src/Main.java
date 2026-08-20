@@ -465,6 +465,9 @@ class Main{
 }
 */
 
+//Reverse Words in a String
+
+
 //Count vowels and Consonants
 /*
 class Main{
@@ -500,3 +503,82 @@ class Main{
 }
 */
 
+//Lowest Common Ancestor of a Binary Tree
+/*
+class Main{
+    static class Node{
+        int data;
+        Node left;
+        Node right;
+        Node p;
+        Node q;
+
+        Node(int data){
+            this.data = data;
+        }
+    }
+
+    public static Node f(Node root, Node p, Node q){
+//        if(root == null){
+//            return null;
+//        }
+
+        if(root.data == p.data || root.data == q.data){
+            return root;
+        }
+
+        Node left = f(root.left, p, q);
+        Node right = f(root.right, p, q);
+
+        if(left != null && right != null){
+            return root;
+        }
+
+        if(left != null){
+            return left;
+        }else{
+            return right;
+        }
+    }
+
+    public static void main(String args[]){
+
+        Node.p = new Node(5);
+        Node.q = new Node(1);
+
+        Node root = new Node(3);
+        root.left = new Node(5);
+        root.right = new Node(1);
+
+        root.left.left = new Node(6);
+        root.left.right = new Node(2);
+
+        root.left.right.left = new Node(7);
+        root.left.right.right = new Node(4);
+
+        root.right.left = new Node(0);
+        root.right.right = new Node(8);
+
+
+
+    }
+}
+*/
+
+//count frequency of characters
+class Main{
+    public static String f(String str){
+        Map<Character, Integer> fmap = new HashMap<>();
+
+        for(int i = 0; i < str.length(); i++){
+            char ch = str.charAt(i);
+            int curr = fmap.getOrDefault(ch, 0) + 1;
+            fmap.put(ch, curr);
+        }
+        return fmap.toString();
+    }
+    public static void main(String args[]){
+        String str = "HelloWorld";
+        System.out.println(f(str));
+    }
+}
