@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 //Week_4 - 17/08/2026
 //Reverse a String
@@ -566,6 +564,7 @@ class Main{
 */
 
 //count frequency of characters
+/*
 class Main{
     public static String f(String str){
         Map<Character, Integer> fmap = new HashMap<>();
@@ -582,3 +581,203 @@ class Main{
         System.out.println(f(str));
     }
 }
+*/
+
+//Find Duplicate Characters in a String
+//Using HashSet
+/*
+class Main{
+    public static String f(String str){
+        Set<Character> seenSet = new HashSet<>();
+        Set<Character> DuplicateSet = new HashSet<>();
+
+        for(char s : str.toCharArray()){
+            if(seenSet.contains(s)){
+                DuplicateSet.add(s);
+            }else {
+                seenSet.add(s);
+            }
+        }
+        return DuplicateSet.toString();
+    }
+    public static void main(String args[]){
+        String str = "abcabdfebf";
+        System.out.println(f(str));
+    }
+}
+*/
+
+//Using Nested Loop
+/*
+class Main{
+    public static String f(String str) {
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+
+            // Check if this character appeared earlier (to avoid duplicate processing)
+            boolean alreadyProcessed = false;
+            for (int k = 0; k < i; k++) {
+                if (str.charAt(k) == c) {
+                    alreadyProcessed = true;
+                    break;
+                }
+            }
+            if (alreadyProcessed) continue;
+
+            // Check if it appears anywhere after index i
+            for (int j = i + 1; j < str.length(); j++) {
+                if (str.charAt(j) == c) {
+                    result.append(c);
+                    break;
+                }
+            }
+        }
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        String str = "abcabdfebf";
+        System.out.println(f(str)); // Output: abf
+    }
+}
+*/
+
+//Remove Duplicate Character from String
+/*
+class Main{
+    public static String f(String str){
+        Set<Character> seenSet = new LinkedHashSet<>();
+
+        for(char c : str.toCharArray()){
+            seenSet.add(c);
+        }
+        StringBuilder sb = new StringBuilder();
+        for(char c : seenSet){
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+    public static void main(String args[]){
+        String str = "abcabdfebf";
+        System.out.println(f(str));
+    }
+}
+*/
+
+//Check if two String are Anagrams
+/*
+class Main{
+    public static boolean f(String s1, String s2){
+        int n = s1.length();
+        int m = s2.length();
+
+        if(n != m){
+            return false;
+        }
+
+        Map<Character, Integer> fmap = new HashMap<>();
+        for(int i = 0; i < n; i++){
+            char c1 = s1.charAt(i);
+            int curr = fmap.getOrDefault(c1, 0) + 1;
+            fmap.put(c1, curr);
+        }
+        for(int i = m-1; i >= 0; i--){
+            char c2 = s2.charAt(i);
+            int curr2 = fmap.getOrDefault(c2, 0) - 1;
+            fmap.put(c2, curr2);
+        }
+
+        for(int count : fmap.values()){
+            if(count != 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String args[]){
+        String s1 = "geeks";
+        String s2 = "kseeg";
+        System.out.println(f(s1, s2));
+    }
+}
+*/
+
+//find the largest element in an array
+/*
+class Main{
+    public static void main(String args[]){
+        int[] arr = {1, 8, 2, 6, 9, 3};
+        int largest = Integer.MIN_VALUE;
+        for(int n : arr){
+            if(n > largest){
+                largest = n;
+            }
+        }
+        System.out.println("Largest no: " + largest);
+    }
+}
+*/
+
+//sum of an array
+/*
+class Main{
+    public static void main(String args[]){
+        int[] arr = {1, 2, 3, 4, 5};
+        int sum = 0;
+        for(int n : arr){
+            sum += n;
+        }
+        System.out.println("Sum of an Array is : " + sum);
+    }
+}
+*/
+
+//Reverse an Array
+/*
+class Main{
+    public static void f(int arr[]){
+        int l = 0;
+        int r = arr.length-1;
+
+        while(l < r){
+            int temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+            l++;
+            r--;
+        }
+    }
+    public static void main(String args[]){
+        int arr[] = {5, 4, 3, 2, 1};
+        f(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+}
+*/
+
+//Using Stack and ArrayList
+/*
+class Main{
+    public static ArrayList<Integer> f(int[] nums){
+        Stack<Integer> st  = new Stack<>();
+        ArrayList<Integer> ans = new ArrayList<>();
+        for(int n : nums){
+            st.push(n);
+        }
+        while(!st.isEmpty()){
+            int curr = st.pop();
+            ans.add(curr);
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+        int[] nums = {5,4,3,2,1};
+        System.out.println(f(nums));
+    }
+}
+*/
+
+//Check if Array is Sorted or not
