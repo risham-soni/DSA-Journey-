@@ -781,3 +781,42 @@ class Main{
 */
 
 //Check if Array is Sorted or not
+/*
+class Main{
+    public static boolean f(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n-1; i++) {
+            if (nums[i] > nums[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String args[]){
+        int[] nums = {10, 20, 30, 40, 50};
+        System.out.println(f(nums));
+    }
+}
+*/
+
+//Remove Duplicates from an Array
+/*
+class Main{
+    public static ArrayList<Integer> f(int[] arr){
+        Set<Integer> seen = new LinkedHashSet<>();
+        for(int a : arr){
+            seen.add(a);
+        }
+        ArrayList<Integer> ans = new ArrayList<>();
+        for(int a : seen){
+            ans.add(a);
+        }
+        return ans;
+    }
+    public static void main(String args[]){
+        int arr[] = {2, 4, 3, 2, 6, 7, 4};
+        System.out.println(f(arr));
+    }
+}
+*/
+
