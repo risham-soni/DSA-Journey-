@@ -820,3 +820,101 @@ class Main{
 }
 */
 
+//Find Dulplicates Element in an array
+/*
+class Main{
+    public static List<Integer> f(int[] arr){
+        Set<Integer> seenSet = new HashSet<>();
+        List<Integer> DuplicateSet = new ArrayList<>();
+        for(int a : arr){
+            if(seenSet.contains(a)){
+                DuplicateSet.add(a);
+            }else{
+                seenSet.add(a);
+            }
+        }
+        return DuplicateSet;
+    }
+    public static void main(String args[]){
+        int[] arr = {2, 4, 3, 2, 6, 7, 4};
+        System.out.println(f(arr));
+    }
+}
+*/
+
+//Find Missing Number in array
+/*
+class Main{
+    public static int f(int[] arr){
+        int n = arr.length+1;
+
+        for(int i = 1; i <= n; i++){
+            boolean found = false;
+            for(int j = 0; j < n-1; j++){
+                if(arr[j] == i){
+                    found = true;
+                    break;
+                }
+            }
+            if(!found){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public static void main(String args[]){
+        int[] arr = {8,2,4,5,3,7,1};
+        System.out.println(f(arr));
+    }
+}
+*/
+
+//Find Frequency of an Array of a Element
+/*
+class Main{
+    public static Map<Integer, Integer> f(int arr[]){
+        Map<Integer, Integer> fmap = new HashMap<>();
+        for(int a : arr) {
+            int curr = fmap.getOrDefault(a, 0) + 1;
+            fmap.put(a, curr);
+        }
+        return fmap;
+    }
+    public static void main(String args[]){
+        int arr[] = {4,5,4,1,2,1,5,3,7,4,1};
+        System.out.println(f(arr));
+
+    }
+}
+*/
+
+//Find Common Element in two Array
+/*
+class Solution {
+    public static ArrayList<Integer> commonElements(int a[], int b[]) {
+
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        // Store frequency of elements in b
+        for (int x : b) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        }
+
+        // Find common elements
+        for (int x : a) {
+
+            if (map.containsKey(x) && map.get(x) > 0) {
+                ans.add(x);
+
+                map.put(x, map.get(x) - 1);
+            }
+        }
+
+        Collections.sort(ans);
+
+        return ans;
+    }
+}
+*/
