@@ -918,3 +918,37 @@ class Solution {
     }
 }
 */
+
+//Merge Two Sorted Arrays
+/*
+class Main{
+    public static int[]
+    public static void main(String args[]){
+        int[] nums1 = {1, 3, 4, 5};
+        int[] nums2 = {2, 4, 6, 8};
+
+    }
+}
+*/
+
+//Move all Zeroes to the End
+class Main {
+    public static int[] f(int[] arr) {
+        int insertPos = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                int temp = arr[i];
+                arr[i] = arr[insertPos];
+                arr[insertPos] = temp;
+                insertPos++;
+            }
+        }
+        return arr;
+    }
+
+    public static void main(String args[]) {
+        int[] arr = {0, 2, 5, 0, 7, 0, 9, 1};
+        f(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+}
