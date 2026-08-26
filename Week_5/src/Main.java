@@ -27,6 +27,7 @@ class Main{
 */
 
 //Merge Two Sorted Array without extra space
+/*
 class Main {
     public static void f(int[] nums1, int[] nums2) {
         int n = nums1.length;
@@ -62,3 +63,31 @@ class Main {
         System.out.println("nums2: " + Arrays.toString(nums2));
     }
 }
+*/
+
+// 2149. Rearrange Array Elements by Sign
+/*
+class Main{
+    public static int[] f(int[] nums){
+        int n = nums.length;
+        int[] ans = new int[n];
+        int l = 0;
+        int r = l+1;
+
+        for(int num : nums){
+            if(num > 0){
+                ans[l] = num;
+                l += 2;
+            }else{
+                ans[r] = num;
+                r += 2;
+            }
+        }
+        return ans;
+    }
+    public static void main(String args[]){
+        int[] nums = {3,1,-2,-5,2,-4};
+        System.out.println(Arrays.toString(f(nums)));
+    }
+}
+*/
