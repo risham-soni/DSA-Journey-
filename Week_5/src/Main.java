@@ -92,7 +92,30 @@ class Main{
 }
 */
 
+//All Divisors of a Number
+class Main{
+    public ArrayList<Integer> f(int n){
+        ArrayList<Integer> divisors = new ArrayList<>();
+        for(int i = 1; i * i <= n; i++){
+            if(n % i == 0){
+                divisors.add(i);
+
+                if(i != n / i){
+                    divisors.add(n / i);
+                }
+            }
+        }
+        Arrays.sort(divisors);
+        return divisors;
+    }
+    public static void main(String args[]) {
+        int n = 20;
+        System.out.println(f(n));
+    }
+}
+
 //Basic Patterns
+/*
 class Main{
     public static void main(String args[]){
         int n = 4;
@@ -104,3 +127,4 @@ class Main{
         }
     }
 }
+/*
