@@ -47,6 +47,7 @@ class Main{
 */
 
 //Traversal in a singly linked list
+/*
 class Node{
     int data;
     Node next;
@@ -79,6 +80,51 @@ class Main{
 
 
         traverseLL(head);
+
+    }
+}
+*/
+
+//Check Palindrome Linked List
+class Main{
+    static class Node{
+        int data;
+        Node next;
+
+        Node(int data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public static boolean f(Node head){
+        Stack<Integer> st = new Stack<>();
+        Node currNode = head;
+
+        while(currNode != null){
+            st.push(currNode.data);
+            currNode = currNode.next;
+        }
+
+        while(head != null){
+            int c = st.pop();
+            if(head.data != c){
+                return false;
+            }
+            head = head.next;
+        }
+
+        return true;
+
+    }
+
+    public static void main(String args[]){
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(2);
+        head.next.next.next = new Node(1);
+
+        System.out.println(f(head));
 
     }
 }
