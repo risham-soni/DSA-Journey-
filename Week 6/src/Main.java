@@ -86,6 +86,7 @@ class Main{
 */
 
 //Check Palindrome Linked List
+/*
 class Main{
     static class Node{
         int data;
@@ -128,7 +129,71 @@ class Main{
 
     }
 }
+*/
 
+//Insert Node at the End of LinkedList
+class Node {
+    int data;
+    Node next;
+
+    Node(int x) {
+        data = x;
+        next = null;
+    }
+}
+
+class Solution {
+    public Node insertAtEnd(Node head, int x) {
+        Node newNode = new Node(x);
+
+        if (head == null) {
+            return newNode;
+        }
+
+        Node last = head;
+        while (last.next != null) {
+            last = last.next;
+        }
+        last.next = newNode;
+
+        return head;
+    }
+}
+
+public class Main {
+    // Utility function to print the linked list
+    public static void printList(Node head) {
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(curr.data + " -> ");
+            curr = curr.next;
+        }
+        System.out.println("null");
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+
+        // 1. Starting with an empty list
+        Node head = null;
+
+        // 2. Insert values at the end: 1 -> 2 -> 3 -> 4 -> 5
+        head = solution.insertAtEnd(head, 1);
+        head = solution.insertAtEnd(head, 2);
+        head = solution.insertAtEnd(head, 3);
+        head = solution.insertAtEnd(head, 4);
+        head = solution.insertAtEnd(head, 5);
+
+        System.out.print("Original List: ");
+        printList(head);
+
+        // 3. Insert value 6 at the end (Example from problem)
+        head = solution.insertAtEnd(head, 6);
+
+        System.out.print("After inserting 6: ");
+        printList(head);
+    }
+}
 
 
 
