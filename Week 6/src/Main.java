@@ -198,6 +198,69 @@ public class Main {
 */
 
 //Insert Node at the specific position of Linked-List
+class LinkedList {
+
+    Node head;
+
+    class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    void insertAtPosition(int data, int position) {
+
+        Node newNode = new Node(data);
+
+        if (position == 1) {
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+
+        Node temp = head;
+
+        for (int i = 1; i < position - 1 && temp != null; i++) {
+            temp = temp.next;
+        }
+
+        if (temp == null) {
+            System.out.println("Invalid Position");
+            return;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
+    void display() {
+        Node temp = head;
+
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+
+        System.out.println("NULL");
+    }
+
+    public static void main(String[] args) {
+
+        LinkedList list = new LinkedList();
+
+        list.insertAtPosition(10, 1);
+        list.insertAtPosition(20, 2);
+        list.insertAtPosition(30, 3);
+
+        list.insertAtPosition(25, 3);
+
+        list.display();
+    }
+}
 
 
 
