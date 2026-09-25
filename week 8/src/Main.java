@@ -409,6 +409,7 @@ class Student {
 */
 
 //Copy Constructor
+/*
 class Main {
     static class Student {
         String name;
@@ -435,3 +436,4 @@ class Main {
         }
     }
 }
+*/
