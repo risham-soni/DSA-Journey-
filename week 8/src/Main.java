@@ -437,3 +437,46 @@ class Main {
     }
 }
 */
+
+/*
+//LC 347 Top K Most Frequent Element
+class Main{
+     public static int[] topKFrequent(int[] nums, int k) {
+
+        Map<Integer, Integer> fmap = new HashMap<>();
+        List<Integer> []bucket = new List[nums.length + 1];
+
+        for(int n : nums){
+            fmap.put(n, fmap.getOrDefault(n, 0) + 1);
+        }
+
+        for(int key : fmap.keySet()){
+            int f = fmap.get(key);
+            if(bucket[f] == null){
+                bucket[f] = new ArrayList<>();
+            }
+            bucket[f].add(key);
+        }
+        int[] res = new int[k];
+        int counter = 0;
+
+        for(int pos = bucket.length-1; pos >= 0 && counter < k; pos--){
+            if(bucket[pos] != null){
+                for(Integer integer : bucket[pos]){
+                    res[counter++] = integer;
+                }
+            }
+        }
+        return res;
+    }
+    public static void main(String args[]){
+        int[] nums = {1,1,1,2,2,3};
+        int k = 2;
+        int[] result = topKFrequent(nums, k);
+        System.out.println(Arrays.toString(result));
+    }
+}
+*/
+
+
+
