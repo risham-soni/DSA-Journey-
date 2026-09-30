@@ -2,6 +2,7 @@
 //27-09-2026
 
 //Binary Search
+/*
 class Main {
     public static int binarySearch(int[] arr, int key) {
         int left = 0;
@@ -43,3 +44,158 @@ class Main {
         }
     }
 }
+*/
+
+
+//Example of copy constructor
+/*
+class Main{
+    static class Person {
+        String name;
+        int age;
+
+        Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        //copy constructor
+        Person(Person other) {
+            this.name = other.name;
+            this.age = other.age;
+        }
+    }
+    public static void main(String args[]){
+        Person first = new Person("Riya", 20);
+        Person second = new Person(first);
+        System.out.println(second.name + "," + second.age);
+    }
+}
+*/
+
+//Inheritance
+//Single level Inheritance
+/*
+class Main{
+    static class Animal{
+        void eat(){
+            System.out.println("Animal is Eating");
+        }
+    }
+    static class Dog extends Animal{
+        void bark(){
+            System.out.println("Dog is Barking");
+        }
+    }
+    public static void main(String args[]){
+        Animal Horse = new Animal();
+        Horse.eat();
+        Dog D1 = new Dog();
+        D1.eat();
+        D1.bark();
+    }
+}
+*/
+
+//Multilevel Inheritance
+/*
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+}
+
+class Puppy extends Dog {
+    void weep() {
+        System.out.println("Puppy is weeping");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Puppy puppy = new Puppy();
+        puppy.eat();   // inherited from Animal
+        puppy.bark();  // inherited from Dog
+        puppy.weep();
+    }
+}
+*/
+
+//Hierarchical inheritance
+/*
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+}
+
+class Cat extends Animal {
+    void meow() {
+        System.out.println("Cat is meowing");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();
+        dog.bark();
+
+        Cat cat = new Cat();
+        cat.eat();
+        cat.meow();
+    }
+}
+*/
+
+//Hybrid inheritance
+//Java supports hybrid inheritance using a combination of a class and interfaces.
+// A class can extend one class and implement multiple interfaces.
+
+/*
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+interface Pet {
+    void play();
+}
+
+interface Guard {
+    void protect();
+}
+
+class Dog extends Animal implements Pet, Guard {
+    public void play() {
+        System.out.println("Dog is playing");
+    }
+
+    public void protect() {
+        System.out.println("Dog is protecting the house");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();      // inherited from Animal
+        dog.play();     // implemented from Pet
+        dog.protect();  // implemented from Guard
+    }
+}
+*/
+
