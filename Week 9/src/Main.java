@@ -199,6 +199,7 @@ public class Main {
 }
 */
 //Heaters LC 475
+/*
 import java.util.Arrays;
 class Main{
     public static int f(int[] houses, int[] heaters){
@@ -234,5 +235,24 @@ class Main{
         int[] houses = {1, 2, 3, 4};
         int[] heaters = {1, 4};
         System.out.println(f(houses, heaters));
+    }
+}
+*/
+
+//LC - 1832
+class Main{
+    public static boolean f(String sentence){
+        boolean[] seen = new boolean[26];
+        for(char c : sentence.toCharArray()){
+            seen[c - 'a'] = true;
+        }
+        for(boolean b : seen){
+            if(!b) return false;
+        }
+        return true;
+    }
+    public static void main(String args[]){
+        String sentence = "thequickbrownfoxjumpsoverthelazydog";
+        System.out.println(f(sentence));
     }
 }
