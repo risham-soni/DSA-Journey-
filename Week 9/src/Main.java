@@ -198,4 +198,41 @@ public class Main {
     }
 }
 */
+//Heaters LC 475
+import java.util.Arrays;
+class Main{
+    public static int f(int[] houses, int[] heaters){
+        Arrays.sort(heaters);
+        int ans = 0;
+        for(int h : houses){
+            int left = 0;
+            int right = heaters.length-1;
+            while(left <= right){
+                int mid = left + (right-left)/2;
+                if(heaters[mid] < h){
+                    left = mid + 1;
+                }else {
+                    right = mid-1;
+                }
+                int leftDistance = Integer.MAX_VALUE;
+                int rightDistance = Integer.MAX_VALUE;
 
+                if(left < heaters.length){
+                    rightDistance = heaters[left] - h;
+                }
+                if(left > 0){
+                    leftDistance = h - heaters[left -1];
+                }
+
+                int nearestDistance = Math.min(leftDistance, rightDistance);
+                ans = Math.max(ans, nearestDistance);
+            }
+        }
+        return ans;
+    }
+    public static void main(String args[]){
+        int[] houses = {1, 2, 3, 4};
+        int[] heaters = {1, 4};
+        System.out.println(f(houses, heaters));
+    }
+}
