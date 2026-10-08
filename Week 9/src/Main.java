@@ -240,6 +240,7 @@ class Main{
 */
 
 //LC - 1832
+/*
 class Main{
     public static boolean f(String sentence){
         boolean[] seen = new boolean[26];
@@ -256,3 +257,40 @@ class Main{
         System.out.println(f(sentence));
     }
 }
+*/
+
+//LC- 678
+import java.util.*;
+class Main{
+    public static boolean checkValidString(String s) {
+        int n = s.length();
+        Stack<Integer> st1 = new Stack<>();
+        Stack<Integer> st2 = new Stack<>();
+
+        for(int i = 0; i < n; i++){
+            char c = s.charAt(i);
+            if(c == '('){
+                st1.push(i);
+            }else if(c == '*'){
+                st2.push(i);
+            }else{
+                if(!st1.isEmpty()){
+                    st1.pop();
+                }else{
+                    return false;
+                }
+            }
+        }
+        while(!st1.isEmpty() && !st2.isEmpty()){
+            if(st1.pop() > st2.pop()){
+                return false;
+            }
+        }
+        return st1.isEmpty();
+    }
+    public static void main(String args[]){
+        String s = "(()*()(*";
+        System.out.println(checkValidString(s));
+    }
+}
+
