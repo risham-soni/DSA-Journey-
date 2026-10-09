@@ -260,6 +260,7 @@ class Main{
 */
 
 //LC- 678
+/*
 import java.util.*;
 class Main{
     public static boolean checkValidString(String s) {
@@ -291,6 +292,107 @@ class Main{
     public static void main(String args[]){
         String s = "(()*()(*";
         System.out.println(checkValidString(s));
+    }
+}
+*/
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+//prefix sum question
+/*
+class Main{
+    static ArrayList<Integer> f(int[] arr, int[][] Queries){
+        int n = arr.length;
+        int[] prefix = new int[n];
+        ArrayList<Integer> ans = new ArrayList<>();
+        prefix[0] = arr[0];
+        for(int i = 1; i < n; i++){
+            prefix[i] = arr[i] + prefix[i-1];
+        }
+        for(int[] query : Queries){
+            int left = query[0];
+            int right = query[1];
+
+            int rangeSum = prefix[right];
+            if(left > 0){
+                rangeSum = rangeSum - prefix[left-1];
+            }
+            ans.add(rangeSum);
+        }
+        System.out.println(Arrays.toString(prefix));
+        return ans;
+    }
+    public static void main(String args[]){
+        int[] arr = {2, 4, 6, 8, 10};
+        int[][] Queries = {{1, 3}, {0, 2}};
+
+        System.out.println(f(arr, Queries));
+    }
+}
+*/
+
+//Equilibrium Point
+/*
+class Main{
+    static int f(int[] arr){
+        int n = arr.length;
+        int[] prefix = new int[n];
+        prefix[0] = arr[0];
+        for(int i = 1; i < n; i++){
+            prefix[i] = arr[i] + prefix[i-1];
+        }
+        int totalSum = prefix[n-1];
+        int leftSum;
+
+        for(int i = 0; i < n; i++){
+            if(i == 0){
+                leftSum = 0;
+            }
+            else{
+                leftSum = prefix[i-1];
+            }
+            int rightSum = totalSum - prefix[i];
+            if(leftSum == rightSum){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public static void main(String args[]){
+        int[] arr = {1, 2, 0, 3};
+        System.out.println(f(arr));
+    }
+}
+*/
+
+//Two equal sum subarray
+class Main {
+    static boolean f(int[] arr) {
+        int n = arr.length;
+        if(n < 2){
+            return false;
+        }
+        int[] prefix = new int[n];
+        prefix[0] = arr[0];
+        for (int i = 1; i < n; i++) {
+            prefix[i] = arr[i] + prefix[i - 1];
+        }
+        int totalSum = prefix[n - 1];
+        for(int i = 0; i < n-1; i++){
+            int firstSubarray = prefix[i];
+            int secondSubarray = totalSum - prefix[i];
+
+            if(firstSubarray == secondSubarray){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String args[]) {
+        int[] arr = {1, 2, 3, 4, 5, 5};
+        System.out.println(f(arr));
     }
 }
 
