@@ -367,6 +367,7 @@ class Main{
 */
 
 //Two equal sum subarray
+/*
 class Main {
     static boolean f(int[] arr) {
         int n = arr.length;
@@ -393,6 +394,40 @@ class Main {
     public static void main(String args[]) {
         int[] arr = {1, 2, 3, 4, 5, 5};
         System.out.println(f(arr));
+    }
+}
+*/
+
+//Original Array from given Prefix Sums
+/*
+class Main{
+    public static void main(String args[]){
+        int[] prefix = {5, 7, 10, 11, 18};
+        int n = prefix.length;
+        int[] original = new int[n];
+
+        if(n > 0){
+            original[0] = prefix[0];
+            for(int i = 1; i < n; i++){
+                original[i] = prefix[i] - prefix[i-1];
+            }
+        }
+        System.out.println(Arrays.toString(original));
+    }
+}
+*/
+
+//Using ArrayList
+class Main{
+    public static void main(String args[]){
+        ArrayList<Integer> Original = new ArrayList<>();
+        int[] prefix = {5, 7, 10, 11, 18};
+        int n = prefix.length;
+        Original.add(prefix[0]);
+        for(int i = 1; i < n; i++){
+            Original.add(prefix[i] - prefix[i-1]);
+        }
+        System.out.println(Original);
     }
 }
 
