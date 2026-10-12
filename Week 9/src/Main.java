@@ -418,6 +418,7 @@ class Main{
 */
 
 //Using ArrayList
+/*
 class Main{
     public static void main(String args[]){
         ArrayList<Integer> Original = new ArrayList<>();
@@ -430,4 +431,7 @@ class Main{
         System.out.println(Original);
     }
 }
+*/
+
+//Linked List
 
